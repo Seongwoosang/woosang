@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Seong Woo Sang</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="">
+            <i class="bi bi-house"></i> 홈</a
+          >
+        </li>
+        <li *ngIf="checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/profile">
+            <i class="bi bi-file-person"></i> 프로필</a
+          >
+        </li>
+        <li *ngIf="checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/dashboard">
+            <i class="bi bi-speedometer"></i> 대시보드</a
+          >
+        </li>
+        <li *ngIf="checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/list">
+            <i class="bi bi-list"></i> 사용자 리스트</a
+          >
+        </li>
+        <li *ngIf="checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/card">
+            <i class="bi bi-card-text"></i> 명함 관리</a
+          >
+        </li>
+        <li *ngIf="checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/qrgen">
+            <i class="bi bi-qr-code"></i> QR 명함 생성</a
+          >
+        </li>
+        <li *ngIf="checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/qrscan">
+            <i class="bi bi-qr-code-scan"></i> QR 명함 스캔</a
+          >
+        </li>
+        <li *ngIf="checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/convert">
+            <i class="bi bi-currency-exchange"></i> 환율 정보</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li *ngIf="!checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/login">
+            <i class="bi bi-key"></i>로그인</a
+          >
+        </li>
+        <li *ngIf="!checkLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/register">
+            <i class="bi bi-file-earmark-text"></i> 사용자 등록</a
+          >
+        </li>
+        <li *ngIf="checkLoggedIn()" class="nav-item">
+          <a class="nav-link" (click)="onLogoutClick()">
+            <i class="bi bi-arrow-right-circle"></i> 로그아웃</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
